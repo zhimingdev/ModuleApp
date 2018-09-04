@@ -31,7 +31,7 @@ public class ProductFragment extends BaseMvpFragment implements ProductContract.
     SmartRefreshLayout fragmentProductSrl;
     private ProductPersenter mProductPersenter;
     private ProductAdapter mProductAdapter;
-    int number = Config.CURRENTPAGE;
+    int number = Config.COMMON_CURRENTPAGE;
     List<ResponseGrilsBean> mGrilsBeanList;
 
     public static ProductFragment newInstance() {
@@ -46,8 +46,8 @@ public class ProductFragment extends BaseMvpFragment implements ProductContract.
     @Override
     protected void initView() {
         mProductPersenter = getPersenter(ProductPersenter.class);
-        mProductPersenter.requestProduct(mActivity,Config.CURRENTPAGE);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(mActivity, Config.ROWNUMBER);
+        mProductPersenter.requestProduct(mActivity,Config.COMMON_CURRENTPAGE);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mActivity, Config.PRODUCT_ROWNUMBER);
         rcvProduct.setLayoutManager(gridLayoutManager);
         mProductAdapter = new ProductAdapter();
         mProductAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
@@ -62,7 +62,7 @@ public class ProductFragment extends BaseMvpFragment implements ProductContract.
 
             @Override
             public void onRefresh(RefreshLayout refreshLayout) {
-                mProductPersenter.requestProduct(mActivity, Config.CURRENTPAGE);
+                mProductPersenter.requestProduct(mActivity, Config.COMMON_CURRENTPAGE);
             }
         });
     }

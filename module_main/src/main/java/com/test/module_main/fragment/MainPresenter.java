@@ -19,7 +19,7 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
     @Override
     public void requestData(Context context) {
         Map<String, String> map = new HashMap<>();
-        map.put("page", ""+ Config.CURRENTPAGE);
+        map.put("page", ""+ Config.COMMON_CURRENTPAGE);
         RetrofitNewHelper.getNewInstance("")
                 .create(ApiService.class)
                 .getNews(map)
