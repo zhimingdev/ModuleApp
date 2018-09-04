@@ -1,8 +1,14 @@
 # ModuleViewProject
 
-## 组件化项目 
+## 组件化项目
+### 一、备注
+1. **使用ImmersionBar适配手机状态栏黑色字体颜色**
+2. **采用mvp框架开发**
+3. **网络请求Rxjava和Retrofit**
+4. **相机相册7.0以上适配**
+5. **手势密码使用第三方Gesturelock**
 
-### 三方库使用
+### 二、三方库使用
 
  * Multid
     * 解决在加载APK的时候限制了class.dex包含的Java方法总数不能超过65535问题
