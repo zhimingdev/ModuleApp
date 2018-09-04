@@ -13,21 +13,32 @@ import android.widget.TextView;
 import com.test.lib_common.R;
 
 public class DialogUtils {
-
+    /**
+     * 创建dialog
+     * @param context 上下文
+     * @param msg 显示内容
+     */
     public static Dialog createLoadingDialog(Context context, String msg) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(R.layout.dialog_loading, null);// 得到加载view
+        // 得到加载view
+        View v = inflater.inflate(R.layout.dialog_loading, null);
+        // 加载布局
         LinearLayout layout = (LinearLayout) v
-                .findViewById(R.id.dialog_loading_view);// 加载布局
-        TextView tipTextView = (TextView) v.findViewById(R.id.tipTextView);// 提示文字
-        tipTextView.setText(msg);// 设置加载信息
-
-        Dialog loadingDialog = new Dialog(context, R.style.MyDialogStyle);// 创建自定义样式dialog
-        loadingDialog.setCancelable(true); // 是否可以按“返回键”消失
-        loadingDialog.setCanceledOnTouchOutside(false); // 点击加载框以外的区域
+                .findViewById(R.id.dialog_loading_view);
+        // 提示文字
+        TextView tipTextView = (TextView) v.findViewById(R.id.tipTextView);
+        // 设置加载信息
+        tipTextView.setText(msg);
+        // 创建自定义样式dialog
+        Dialog loadingDialog = new Dialog(context, R.style.MyDialogStyle);
+        // 是否可以按“返回键”消失
+        loadingDialog.setCancelable(true);
+        // 点击加载框以外的区域
+        loadingDialog.setCanceledOnTouchOutside(false);
+        // 设置布局
         loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));// 设置布局
+                LinearLayout.LayoutParams.MATCH_PARENT));
         /**
          *将显示Dialog的方法封装在这里面
          */
@@ -45,9 +56,6 @@ public class DialogUtils {
 
     /**
      * 关闭dialog
-     *
-     * http://blog.csdn.net/qq_21376985
-     *
      * @param mDialogUtils
      */
     public static void closeDialog(Dialog mDialogUtils) {

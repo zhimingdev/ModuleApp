@@ -23,7 +23,7 @@ public class ProductPersenter extends BasePresenter<ProductContract.IView> imple
                     @Override
                     public void onSuccess(HttpResponse<List<ResponseGrilsBean>> t) throws Exception {
                         List<ResponseGrilsBean> results = t.results;
-                        if (i == 1) {
+                        if (i == Config.CURRENTPAGE) {
                             getView().refreshProductView(results);
                         }else {
                             getView().loadMore(results);

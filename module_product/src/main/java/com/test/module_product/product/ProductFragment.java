@@ -11,6 +11,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.test.lib_common.base.BaseMvpFragment;
+import com.test.lib_common.config.Config;
 import com.test.module_product.R;
 import com.test.module_product.R2;
 import com.test.module_product.adpter.ProductAdapter;
@@ -30,7 +31,7 @@ public class ProductFragment extends BaseMvpFragment implements ProductContract.
     SmartRefreshLayout fragmentProductSrl;
     private ProductPersenter mProductPersenter;
     private ProductAdapter mProductAdapter;
-    int number = 1;
+    int number = Config.CURRENTPAGE;
     List<ResponseGrilsBean> mGrilsBeanList;
 
     public static ProductFragment newInstance() {
@@ -45,8 +46,8 @@ public class ProductFragment extends BaseMvpFragment implements ProductContract.
     @Override
     protected void initView() {
         mProductPersenter = getPersenter(ProductPersenter.class);
-        mProductPersenter.requestProduct(mActivity,1);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(mActivity, 2);
+        mProductPersenter.requestProduct(mActivity,Config.CURRENTPAGE);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mActivity, Config.ROWNUMBER);
         rcvProduct.setLayoutManager(gridLayoutManager);
         mProductAdapter = new ProductAdapter();
         mProductAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
@@ -61,7 +62,7 @@ public class ProductFragment extends BaseMvpFragment implements ProductContract.
 
             @Override
             public void onRefresh(RefreshLayout refreshLayout) {
-                mProductPersenter.requestProduct(mActivity,1);
+                mProductPersenter.requestProduct(mActivity, Config.CURRENTPAGE);
             }
         });
     }

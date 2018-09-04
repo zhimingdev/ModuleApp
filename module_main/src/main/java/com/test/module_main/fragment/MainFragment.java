@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -136,7 +135,6 @@ public class MainFragment extends BaseMvpFragment implements MainContract.IView 
 
     @Override
     public void refreshView(List<GrilBean> results) {
-        System.out.println("接受到数据" + new Gson().toJson(results));
         mGirlAdapter.setNewData(results);
     }
 

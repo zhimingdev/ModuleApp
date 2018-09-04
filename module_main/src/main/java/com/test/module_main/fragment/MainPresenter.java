@@ -3,6 +3,7 @@ package com.test.module_main.fragment;
 import android.content.Context;
 
 import com.test.lib_common.base.BasePresenter;
+import com.test.lib_common.config.Config;
 import com.test.lib_common.http.BaseObserver;
 import com.test.lib_common.http.HttpResponse;
 import com.test.lib_common.http.RetrofitNewHelper;
@@ -18,7 +19,7 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
     @Override
     public void requestData(Context context) {
         Map<String, String> map = new HashMap<>();
-        map.put("page", "1");
+        map.put("page", ""+ Config.CURRENTPAGE);
         RetrofitNewHelper.getNewInstance("")
                 .create(ApiService.class)
                 .getNews(map)

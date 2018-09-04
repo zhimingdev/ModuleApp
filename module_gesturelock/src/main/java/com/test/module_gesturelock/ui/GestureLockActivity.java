@@ -62,10 +62,12 @@ public class GestureLockActivity extends BaseMvpActivity implements View.OnClick
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.iv_hand_switch) {
-            if (PreferenceCache.getGestureSwitch()) { //开的状态
+            if (PreferenceCache.getGestureSwitch()) {
+                //开的状态
                 PreferenceCache.putGestureSwitch(false);
                 initData();
-            } else {  //关的状态
+            } else {
+                //关的状态
                 if (mLockPatternUtils.savedPatternExists()) {
                     PreferenceCache.putGestureSwitch(true);
                     initData();

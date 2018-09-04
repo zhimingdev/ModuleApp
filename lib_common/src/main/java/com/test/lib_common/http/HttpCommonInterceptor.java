@@ -16,9 +16,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * 对参数进行加密
+ * 自定义拦截器,数据排序,加密
  */
-
 
 public class HttpCommonInterceptor implements Interceptor {
 

@@ -25,7 +25,7 @@ import java.util.List;
 import butterknife.OnClick;
 
 /**
- * Created by Administrator on 2016/11/3.
+ * 解锁页面
  */
 @Route(path = "/gesture/UnlockGesturePasswordActivity")
 public class UnlockGesturePasswordActivity extends BaseMvpActivity {

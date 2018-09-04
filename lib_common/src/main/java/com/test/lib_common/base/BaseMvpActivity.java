@@ -16,11 +16,6 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.ObservableTransformer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 public abstract class BaseMvpActivity extends AppCompatActivity implements IBaseView{
     private Unbinder unbinder;
@@ -52,6 +47,10 @@ public abstract class BaseMvpActivity extends AppCompatActivity implements IBase
     //初始化数据
     public abstract void initData();
 
+    /**
+     * 创建Presenter
+     * @param aclass p.getaclass
+     */
     @Override
     public <P extends BasePresenter> P getPersenter(Class<P> aclass) {
         for (BasePresenter basePresenter:mPresenterList) {
@@ -79,15 +78,6 @@ public abstract class BaseMvpActivity extends AppCompatActivity implements IBase
         }
     }
 
-    public <T> ObservableTransformer<T,T> setThread(){
-        return new ObservableTransformer<T,T>() {
-            @Override
-            public ObservableSource<T> apply(Observable<T> upstream) {
-                return upstream.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
-            }
-        };
-    }
-
     /**
      * 是否在Fragment使用沉浸式
      *
@@ -99,6 +89,7 @@ public abstract class BaseMvpActivity extends AppCompatActivity implements IBase
 
     /**
      * 初始化沉浸式
+     * @param isChange 是否使用沉浸式
      */
     protected void initImmersionBar(boolean isChange) {
         //支持当前设备支状态栏字体设置为黑色

@@ -11,12 +11,12 @@ import android.support.v4.content.FileProvider;
 import java.io.File;
 import java.util.List;
 
-/**
- * Created by zhanghongyang01 on 17/5/31.
- */
-
 public class FileProvider7 extends FileProvider {
 
+    /**
+     * 7.0以上uri适配问题
+     * @param file 文件路径
+     */
     public static Uri getUriForFile(Context context, File file) {
         Uri fileUri = null;
         if (Build.VERSION.SDK_INT >= 24) {
@@ -27,15 +27,12 @@ public class FileProvider7 extends FileProvider {
         return fileUri;
     }
 
-
-
     public static Uri getUriForFile24(Context context, File file) {
         Uri fileUri = FileProvider.getUriForFile(context,
                 "com.test.lib_common.android7.fileprovider",
                 file);
         return fileUri;
     }
-
 
     public static void setIntentDataAndType(Context context,
                                             Intent intent,
@@ -52,7 +49,6 @@ public class FileProvider7 extends FileProvider {
             intent.setDataAndType(Uri.fromFile(file), type);
         }
     }
-
 
     public static void setIntentData(Context context,
                                      Intent intent,

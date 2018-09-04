@@ -1,6 +1,18 @@
 package com.test.lib_common.http;
-
+/**
+ * 返回参数基类
+ */
 public class HttpResponse<T> {
+
+    /**
+     * msg 返回信息
+     * code 返回码
+     * status 返回成功状态
+     * data 返回数据
+     * error 返回状态
+     * results 返回数据
+     */
+
     private String msg;
     private int code;
     private int statu;

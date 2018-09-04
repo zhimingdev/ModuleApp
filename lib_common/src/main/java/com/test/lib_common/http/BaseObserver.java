@@ -34,8 +34,6 @@ public abstract class BaseObserver<T> implements Observer<HttpResponse<T>> {
         onRequestStart();
     }
 
-
-
     @Override
     public void onNext(HttpResponse<T> response) {
         Log.i("OkHttp",new Gson().toJson(response));

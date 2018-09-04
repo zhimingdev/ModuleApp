@@ -67,10 +67,17 @@ public abstract class BaseMvpFragment extends Fragment implements IBaseView {
         return contentView;
     }
 
+    //初始化布局
     protected abstract int configLayout();
+    //初始化控件
     protected abstract void initView();
+    //初始化数据
     protected abstract void initData();
 
+    /**
+     * 创建Presenter
+     * @param aclass p.getaclass
+     */
     @Override
     public <P extends BasePresenter> P getPersenter(Class<P> aclass) {
         for (BasePresenter basePresenter:mPresenterList) {

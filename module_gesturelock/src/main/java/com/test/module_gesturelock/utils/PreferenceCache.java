@@ -3,8 +3,10 @@ package com.test.module_gesturelock.utils;
 import com.blankj.utilcode.util.SPUtils;
 
 public class PreferenceCache {
-    public static final String GESTURE_FLG = "gesture_flg"; // 判断是否设置有手势密码
-    public static final String GESTURE_SWITCH = "gesture_time"; // 手势密码开关
+    // 判断是否设置有手势密码
+    public static final String GESTURE_FLG = "gesture_flg";
+    // 手势密码开关
+    public static final String GESTURE_SWITCH = "gesture_time";
 
     public static void putGestureFlag(boolean flg) {
         SPUtils.getInstance().put(GESTURE_FLG,flg);
