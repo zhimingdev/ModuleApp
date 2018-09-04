@@ -1,0 +1,91 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+
+    </style>
+
+    <style name="AppTheme" parent="Base.AppTheme" />
+
+    <!--无ActionBar的AppTheme-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--启动页样式及窗口背景-->
+    <!--<style name="SplashTheme" parent="TransparentStatusBarTheme">-->
+    <!--<item name="android:windowBackground">@drawable/bg_launch</item>-->
+    <!--<item name="android:windowFullscreen">false</item>-->
+    <!--</style>-->
+
+    <style name="PhototFullscreenTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <!--全屏-->
+
+    <style name="FullscreenTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/ic_splash</item>
+    </style>
+
+    <style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- popup window 显示消失动画-->
+    <style name="PopWindowAnimStyle">
+        <item name="android:windowShowAnimation">@anim/dialog_enter</item>
+        <!-- 指定显示的动画xml  -->
+        <item name="android:windowHideAnimation">@anim/dialog_exit</item>
+        <!-- 指定消失的动画xml  -->
+    </style>
+
+    <declare-styleable name="TitleBar">
+        <attr name="title" format="string" />
+        <attr name="TitleColor" format="color" />
+
+        <attr name="leftTextColor" format="color" />
+        <attr name="leftIcon" format="reference" />
+        <attr name="leftTwoIcon" format="reference" />
+        <attr name="leftText" format="string" />
+
+        <attr name="rightTextColor" format="color" />
+        <attr name="rightIcon" format="reference" />
+        <attr name="rightText" format="string" />
+
+        <attr name="titleBackground" format="color" />
+        <attr name="hideLine">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="RxShapeLoadingView">
+        <attr name="loadingText" format="string"/>
+        <attr name="loadingTextAppearance" format="reference"/>
+    </declare-styleable>
+
+
+    <!-- dialog动画 -->
+    <style name="style_dialog">
+        <item name="android:windowEnterAnimation">@anim/anim_popup_zoom_enter</item>
+        <item name="android:windowExitAnimation">@anim/anim_popup_zoom_exit</item>
+    </style>
+
+
+</resources>

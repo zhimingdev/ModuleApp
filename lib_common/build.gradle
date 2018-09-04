@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api rootProject.ext.dependencies["appcompat_v7"]
+    api rootProject.ext.dependencies["constraint_layout"]
+    api rootProject.ext.dependencies["design"]
+    api rootProject.ext.dependencies["support-v4"]
+    api rootProject.ext.dependencies["cardview-v7"]
+    api rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
+    //MultiDex分包方法
+    api rootProject.ext.dependencies["multidex"]
+    //Arouter路由
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    api rootProject.ext.dependencies["arouter_api"]
+    //上拉加载
+    api rootProject.ext.dependencies["smartRefreshLayout"]
+    api rootProject.ext.dependencies["SmartRefreshHeader"]
+    api rootProject.ext.dependencies["android-gif-drawable"]
+    //黄油刀
+    annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
+    api rootProject.ext.dependencies["butterknife"]
+    //图片
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["constraint"]
+    api rootProject.ext.dependencies["utils"]
+    //轮播图
+    api rootProject.ext.dependencies["banner"]
+    implementation files('libs/ocr-sdk.jar')
+    //retrofit和rxjava
+    api rootProject.ext.dependencies["retrofit2"]
+    api rootProject.ext.dependencies["converter-gson"]
+    api rootProject.ext.dependencies["adapter-rxjava2"]
+    api rootProject.ext.dependencies["rxjava2:rxandroid"]
+    api rootProject.ext.dependencies["rxjava2"]
+    api rootProject.ext.dependencies["gson"]
+    api rootProject.ext.dependencies["retrofit-log"]
+    //图片缩放
+    api rootProject.ext.dependencies["photoview"]
+    implementation files('libs/barlibrary-2.3.0.jar')
+    //弹窗
+    api rootProject.ext.dependencies["alertview"]
+    api rootProject.ext.dependencies["RxTool"]
+    api rootProject.ext.dependencies["RxUI"]
+}

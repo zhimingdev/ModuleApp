@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="color_bs">#F3F3F3</color>
+    <color name="color_line">#DCDCDC</color>
+    <color name="color_89">#898989</color>
+    <color name="color_red">#ff6600</color>
+    <!--进度条底色-->
+    <color name="color_00d">#a0000000</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_pale_gold">#FFEBA0</color>
+    <color name="color_5">#555555</color>
+    <color name="color_5d">#5d5d5d</color>
+    <color name="color_8">#888888</color>
+    <color name="color_fd">#fd8026</color>
+    <color name="color_bg_pro">#F0F0F0</color>
+    <color name="color_login_bas">#f27a70</color>
+    <color name="color_green">#47a94c</color>
+    <color name="holo_gray_light">#ff6c6c6c</color>
+    <color name="color_hei_8">#00000000</color>
+    <color name="color_theme_red">#E43824</color>
+    <color name="color_btn_invite">#ffcf47</color>
+    <color name="color_title_black">#1e1e1e</color>
+    <color name="color_rate_baseearnings">#e7395a</color>
+    <color name="agreement_text_color">#333333</color>
+    <color name="agreement_background_color">#FFFFFF</color>
+    <color name="text_main_color">#5D97FF</color>
+
+</resources>

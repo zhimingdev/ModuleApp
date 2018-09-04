@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="ColorArcProgressBar">
+        <attr name="back_color" format="color" />
+        <attr name="front_color1" format="color" />
+        <attr name="front_color2" format="color" />
+        <attr name="front_color3" format="color" />
+        <attr name="back_width" format="dimension" />
+        <attr name="front_width" format="dimension" />
+        <attr name="is_need_title" format="boolean" />
+        <attr name="is_need_content" format="boolean" />
+        <attr name="is_need_unit" format="boolean" />
+        <attr name="is_need_dial" format="boolean" />
+        <attr name="string_title" format="string" />
+        <attr name="string_unit" format="string" />
+        <attr name="total_engle" format="integer" />
+        <attr name="current_value" format="float" />
+        <attr name="max_value" format="float" />
+
+    </declare-styleable>
+
+
+    <!-- LockPatternView class attributes -->
+    <declare-styleable name="LockPatternView">
+        <!--
+             Aspect to use when drawing LockPatternView. Choices are "square"(default), "lock_width"
+             or "lock_height"
+        -->
+        <attr name="aspect">
+            <enum name="square" value="0" />
+            <enum name="lockWidth" value="1" />
+            <enum name="lockHeight" value="2" />
+        </attr>
+        <attr name="line" format="color" />
+        <attr name="btnNormal" format="reference" />
+        <attr name="btnTouched" format="reference" />
+        <attr name="circleNormal" format="reference" />
+        <attr name="circleGreen" format="reference" />
+        <attr name="circleRed" format="reference" />
+        <attr name="arrowGreenUp" format="reference" />
+        <attr name="arrowRedUp" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="GroupRecyclerView">
+        <attr name="group_height" format="dimension" />
+        <attr name="group_child_offset" format="dimension" />
+        <attr name="group_background" format="color" />
+        <attr name="group_text_color" format="color" />
+        <attr name="group_text_size" format="dimension" />
+        <attr name="group_center" format="boolean" />
+        <attr name="group_padding_left" format="dimension" />
+        <attr name="group_padding_right" format="dimension" />
+        <attr name="group_has_header" format="boolean" />
+    </declare-styleable>
+</resources>

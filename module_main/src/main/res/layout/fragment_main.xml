@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:titlebar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/fragment_mainsrl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnableLoadMore="false"
+        app:srlEnableAutoLoadMore="false">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:scaleType="center"
+            android:src="@mipmap/refresh_img_coin"
+            app:layout_srlBackgroundColor="@android:color/transparent"
+            app:layout_srlSpinnerStyle="Scale" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.zhouwei.mzbanner.MZBannerView
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:canLoop="true"
+                app:indicatorAlign="center"
+                app:open_mz_mode="false" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/test_rcv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_grils"/>
+
+        </LinearLayout>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</LinearLayout>

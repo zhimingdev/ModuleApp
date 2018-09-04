@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="50dp">
+
+    <ImageView
+        android:id="@+id/iv_find_photo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/addphoto"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv_photot"
+        android:background="@drawable/bg_textview_shape"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="相册"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tv_carmer"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/bg_textview_shape"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="相机"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+</LinearLayout>
