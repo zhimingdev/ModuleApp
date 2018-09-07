@@ -10,7 +10,7 @@
 
 ### 二、三方库使用
 
- * Multid
+* Multid
     * 解决在加载APK的时候限制了class.dex包含的Java方法总数不能超过65535问题
     * 参考链接: https://www.cnblogs.com/butterfly-clover/p/5161150.html
 
@@ -64,7 +64,7 @@
     * 参考链接: https://github.com/chrisbanes/PhotoView#features
 
 
-*  Glide
+* Glide
     * Glide和Picasso非常相似,Glide更易用，因为Glide的with方法不光接受Context，还接受Activity 和 Fragment，Context会自动的从他们获取,
     * Glide默认的Bitmap格式是RGB_565 ，比ARGB_8888格式的内存开销要小一半.
     * 参考链接: https://blog.csdn.net/guolin_blog/article/details/53759439
