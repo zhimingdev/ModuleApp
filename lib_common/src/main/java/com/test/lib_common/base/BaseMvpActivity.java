@@ -31,7 +31,8 @@ public abstract class BaseMvpActivity extends AppCompatActivity implements IBase
         setContentView(getLayoutId());
         mContext = this;
         unbinder = ButterKnife.bind(this);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // 禁止所有activity横屏
+        // 禁止所有activity横屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // ARouter inject 注入
         ARouter.getInstance().inject(this);
         //初始化沉浸式
@@ -48,7 +49,7 @@ public abstract class BaseMvpActivity extends AppCompatActivity implements IBase
     public abstract void initData();
 
     /**
-     * 创建Presenter
+     * 获取Presenter
      * @param aclass p.getaclass
      */
     @Override
@@ -61,7 +62,10 @@ public abstract class BaseMvpActivity extends AppCompatActivity implements IBase
         return null;
     }
 
-
+    /**
+     * 创建Presenter
+     * 可以创建多个Presenter
+     */
     @Override
     public void createPersenter(Class<? extends BasePresenter>... classes) {
         if (ObjectUtils.isEmpty(mPresenterList)) {
@@ -126,7 +130,8 @@ public abstract class BaseMvpActivity extends AppCompatActivity implements IBase
         super.onDestroy();
         unbinder.unbind();
         if (mImmersionBar != null) {
-            mImmersionBar.destroy();  //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态   }
+            //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态   }
+            mImmersionBar.destroy();
         }
         if (mPresenterList != null) {
            for (BasePresenter basePresenter : mPresenterList) {

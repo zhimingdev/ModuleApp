@@ -22,10 +22,16 @@ public class BasePresenter<V extends IBaseView> implements IBasePresenter {
 
     }
 
+    /**
+     * 软引用view对象.内存不足时回收
+     */
     public void attachView(V view) {
         mViewRef = new WeakReference<>(view);
     }
 
+    /**
+     * 布局销毁时,清空软引用对象
+     */
     public void detachView() {
         if (mViewRef != null) {
             mViewRef.clear();
@@ -37,6 +43,9 @@ public class BasePresenter<V extends IBaseView> implements IBasePresenter {
         return mViewRef.get();
     }
 
+    /**
+     * 对网络请求进行线程切换
+     */
     public <T> ObservableTransformer<T,T> setThread(){
         return new ObservableTransformer<T,T>() {
             @Override

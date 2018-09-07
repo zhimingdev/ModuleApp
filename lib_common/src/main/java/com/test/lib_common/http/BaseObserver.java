@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.test.lib_common.config.Config;
 import com.test.lib_common.dialog.RxDialogShapeLoading;
 
 import java.net.SocketTimeoutException;
@@ -11,12 +12,13 @@ import java.net.SocketTimeoutException;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import retrofit2.HttpException;
-
+/**
+ * 对retrofit和rxjava请求结果封装
+ */
 public abstract class BaseObserver<T> implements Observer<HttpResponse<T>> {
 
     private int errorCode;
     private String errorMsg ;
-    private final int RESPONSE_CODE_FAILED = -1;
     private Disposable disposable;
     private final RxDialogShapeLoading mRxDialogShapeLoading;
     //    private final Dialog mLoadingDialog;
@@ -38,14 +40,14 @@ public abstract class BaseObserver<T> implements Observer<HttpResponse<T>> {
     public void onNext(HttpResponse<T> response) {
         Log.i("OkHttp",new Gson().toJson(response));
         try {
-            if (response.getCode() == 1 || !response.error) {
+            if (response.getCode() == Config.RESPONSE_CODE_SUCCESS || !response.error) {
 //                DialogUtils.closeDialog(mLoadingDialog);
                 new android.os.Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         mRxDialogShapeLoading.dismiss();
                     }
-                },3000);
+                },Config.HANDLER_POSTDELAYED_TIME);
 
                 onSuccess(response);
             }else {
@@ -69,11 +71,11 @@ public abstract class BaseObserver<T> implements Observer<HttpResponse<T>> {
                 errorMsg = httpException.getMessage();
             } else if (t instanceof SocketTimeoutException) {
                 SocketTimeoutException timeoutException = (SocketTimeoutException) t;
-                errorCode = RESPONSE_CODE_FAILED;
+                errorCode = Config.RESPONSE_CODE_FAILED;
                 errorMsg = timeoutException.getMessage();
             }else {
                 errorMsg = t.getMessage();
-                errorCode = RESPONSE_CODE_FAILED;
+                errorCode = Config.RESPONSE_CODE_FAILED;
             }
             // .....其他的异常处理
             onFailure(errorCode, errorMsg);
@@ -87,7 +89,17 @@ public abstract class BaseObserver<T> implements Observer<HttpResponse<T>> {
 
     }
 
+    /**
+     * 请求成功回调
+     * @param t 请求成功实体
+     */
     public abstract void onSuccess(HttpResponse<T> t)throws Exception;
+
+    /**
+     * 请求失败回调
+     * @param errorCode 错误码
+     * @param errorMsg 错误信息
+     */
     protected abstract void onFailure(int errorCode, String errorMsg)throws Exception;
 
     protected void onRequestStart() {

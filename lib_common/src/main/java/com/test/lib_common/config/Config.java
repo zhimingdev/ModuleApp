@@ -1,6 +1,7 @@
 package com.test.lib_common.config;
 
 public class Config {
+
     /**
      * 基础常量配置
      */
@@ -11,6 +12,13 @@ public class Config {
     public static final String DEFAULT = "default";
     //初始当前页面数值
     public static final int COMMON_CURRENTPAGE = 1;
+    //网络请求返回码
+    public static final int RESPONSE_CODE_FAILED = -1;
+    public static final int RESPONSE_CODE_SUCCESS = 1;
+    //handler延迟消息时间
+    public static final int HANDLER_POSTDELAYED_TIME = 1;
+    //启动页延迟时间
+    public static final int SPLASHACTIVITY_POSTDELAYED_TIME = 2000;
 
     /**
      * 首页常量配置

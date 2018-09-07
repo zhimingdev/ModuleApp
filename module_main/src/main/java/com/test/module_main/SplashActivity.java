@@ -4,6 +4,7 @@ import android.os.Handler;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.test.lib_common.base.BaseMvpActivity;
+import com.test.lib_common.config.Config;
 import com.test.module_gesturelock.lock.LockPatternUtils;
 import com.test.module_gesturelock.utils.PreferenceCache;
 
@@ -34,7 +35,7 @@ public class SplashActivity extends BaseMvpActivity {
                 }
                 finish();
             }
-        },2000);
+        }, Config.SPLASHACTIVITY_POSTDELAYED_TIME);
     }
 
     @Override
