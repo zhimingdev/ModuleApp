@@ -23,14 +23,14 @@ public class BasePresenter<V extends IBaseView> implements IBasePresenter {
     }
 
     /**
-     * 软引用view对象.内存不足时回收
+     * 弱引用view对象.内存不足时回收
      */
     public void attachView(V view) {
         mViewRef = new WeakReference<>(view);
     }
 
     /**
-     * 布局销毁时,清空软引用对象
+     * 布局销毁时,清空弱引用对象
      */
     public void detachView() {
         if (mViewRef != null) {
