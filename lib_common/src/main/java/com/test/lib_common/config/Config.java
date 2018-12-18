@@ -6,7 +6,8 @@ public class Config {
      * 基础常量配置
      */
     //多个URL请求地址
-    public static final String BASE_URL = "http://www.yulin520.com/";
+//    public static final String BASE_URL = "http://www.yulin520.com/";
+    public static final String BASE_URL = "https://api.douban.com/";
     public static final String BASE_URL2 = "http://gank.io/api/data/";
     //默认retrofit创建类型
     public static final String DEFAULT = "default";

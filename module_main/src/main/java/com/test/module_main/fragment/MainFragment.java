@@ -1,6 +1,9 @@
 package com.test.module_main.fragment;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,7 +22,8 @@ import com.test.lib_common.utils.MyAdvertisementView;
 import com.test.module_main.R;
 import com.test.module_main.R2;
 import com.test.module_main.adapter.GirlAdapter;
-import com.test.module_main.bean.GrilBean;
+import com.test.module_main.bean.MovieBean;
+import com.test.module_main.ui.movie.MovieDetailActivity;
 import com.zhouwei.mzbanner.MZBannerView;
 import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
@@ -39,6 +43,7 @@ public class MainFragment extends BaseMvpFragment implements MainContract.IView 
     private List<Integer> list = new ArrayList<>();
     private MainPresenter mMainPresenter;
     private GirlAdapter mGirlAdapter;
+    private List<MovieBean> list1;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -76,7 +81,7 @@ public class MainFragment extends BaseMvpFragment implements MainContract.IView 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mActivity);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         testRcv.setLayoutManager(linearLayoutManager);
-        mGirlAdapter = new GirlAdapter();
+        mGirlAdapter = new GirlAdapter(mActivity);
         mGirlAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         mGirlAdapter.isFirstOnly(false);
         testRcv.setAdapter(mGirlAdapter);
@@ -134,7 +139,8 @@ public class MainFragment extends BaseMvpFragment implements MainContract.IView 
     }
 
     @Override
-    public void refreshView(List<GrilBean> results) {
+    public void refreshView(List<MovieBean> results) {
+        list1 = results;
         mGirlAdapter.setNewData(results);
     }
 

@@ -74,14 +74,14 @@ public class PhotoActivity extends BaseMvpActivity {
             Intent i = new Intent(Intent.ACTION_PICK,
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(i, 0);
-        }else if (id == R.id.tv_carmer) {
+        } else if (id == R.id.tv_carmer) {
             //打开相机
             if (ContextCompat.checkSelfPermission(PhotoActivity.this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
+                            Manifest.permission.CAMERA)
+                            != PackageManager.PERMISSION_GRANTED) {
 
                 ActivityCompat.requestPermissions(PhotoActivity.this,
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         REQ_PERMISSION_CODE_TAKE_PHOTO);
 
             } else {

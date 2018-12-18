@@ -13,82 +13,18 @@
         app:title="相关功能"
         app:rightText="提示" />
 
-    <RelativeLayout
-        android:id="@+id/rl_photo"
+    <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/white">
+        android:layout_height="50dp"
+        app:tabTextColor="@color/black"
+        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabIndicatorColor="@null"
+        android:id="@+id/activity_find_tl"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:paddingLeft="15dp"
-            android:text="相册、拍照"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingRight="15dp"
-            android:src="@drawable/icon_in" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl_card"
+    <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white">
+        android:layout_height="match_parent"
+        android:id="@+id/activity_find_vp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:paddingLeft="15dp"
-            android:text="身份证扫描"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingRight="15dp"
-            android:src="@drawable/icon_in" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl_gesturelock"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:paddingLeft="15dp"
-            android:text="手势密码"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingRight="15dp"
-            android:src="@drawable/icon_in" />
-
-    </RelativeLayout>
 
 </LinearLayout>

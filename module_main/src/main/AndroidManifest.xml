@@ -13,6 +13,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".activity.WebViewActivity"/>
+        <activity android:name=".ui.movie.MovieDetailActivity"/>
     </application>
 
 </manifest>

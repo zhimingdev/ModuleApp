@@ -16,6 +16,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             buildConfigField "boolean", "LOG_DEBUG", "true"
@@ -52,6 +56,7 @@ dependencies {
     api rootProject.ext.dependencies["butterknife"]
     //图片
     api rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide"]
     api rootProject.ext.dependencies["constraint"]
     api rootProject.ext.dependencies["utils"]
     //轮播图
@@ -72,4 +77,5 @@ dependencies {
     api rootProject.ext.dependencies["alertview"]
     api rootProject.ext.dependencies["RxTool"]
     api rootProject.ext.dependencies["RxUI"]
+    api rootProject.ext.dependencies["transformations"]
 }

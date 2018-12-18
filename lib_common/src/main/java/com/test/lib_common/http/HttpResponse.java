@@ -19,6 +19,8 @@ public class HttpResponse<T> {
     private T data;
     public boolean error;
     public T results;
+    public int start;
+    public T subjects;
 
     public String getMsg() {
         return msg;
@@ -50,5 +52,21 @@ public class HttpResponse<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public T getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(T subjects) {
+        this.subjects = subjects;
     }
 }

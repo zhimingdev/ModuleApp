@@ -52,8 +52,9 @@ ext {
             //日志
             "logger"                         : 'com.orhanobut:logger:2.1.1',
             //图片
-            "glide"                          : 'com.github.bumptech.glide:glide:4.5.0',
-            "glide:okhttp3"                  : 'com.github.bumptech.glide:okhttp3-integration:4.5.0',
+            "glide"                          : 'com.github.bumptech.glide:glide:3.7.0',
+            "glide:okhttp3"                  : 'com.github.bumptech.glide:okhttp3-integration:3.7.0',
+            "transformations"                : 'jp.wasabeef:glide-transformations:3.0.1',
             //图片选择器
             "PictureSelector"                : 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3',
             //图片缩放

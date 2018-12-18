@@ -1,35 +1,37 @@
 package com.test.module_find;
 
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.baidu.ocr.sdk.OCR;
-import com.baidu.ocr.sdk.OnResultListener;
-import com.baidu.ocr.sdk.exception.OCRError;
-import com.baidu.ocr.sdk.model.AccessToken;
 import com.bigkoo.alertview.AlertView;
-import com.blankj.utilcode.util.ToastUtils;
 import com.test.lib_common.base.BaseMvpFragment;
 import com.test.lib_common.view.TitleBar;
+import com.test.module_find.adapter.MyAdapter;
+import com.test.module_find.ui.thirdparty.ThirdFragment;
+import com.test.module_find.ui.zhishi.ZhishiFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class FindFragment extends BaseMvpFragment {
-    @BindView(R2.id.ll_find)
-    LinearLayout llFind;
-    @BindView(R2.id.rl_photo)
-    RelativeLayout rlPhoto;
-    @BindView(R2.id.rl_card)
-    RelativeLayout rlCard;
+
     @BindView(R2.id.fragment_find_titlebar)
     TitleBar fragmentFindTitlebar;
-    @BindView(R2.id.rl_gesturelock)
-    RelativeLayout rlGesturelock;
+    @BindView(R2.id.activity_find_tl)
+    TabLayout activityFindTl;
+    @BindView(R2.id.activity_find_vp)
+    ViewPager activityFindVp;
 
-    protected boolean hasGotToken = false;
+    List<String> list = new ArrayList<>();
+    List<Fragment> fragmentList = new ArrayList<>();
+    private MyAdapter myAdapter;
 
     public static FindFragment newInstance() {
         return new FindFragment();
@@ -42,19 +44,14 @@ public class FindFragment extends BaseMvpFragment {
 
     @Override
     protected void initView() {
-        OCR.getInstance(mActivity).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
-            @Override
-            public void onResult(AccessToken result) {
-                String token = result.getAccessToken();
-                hasGotToken = true;
-            }
-
-            @Override
-            public void onError(OCRError error) {
-                error.printStackTrace();
-                ToastUtils.showShort("AK，SK方式获取token失败");
-            }
-        }, mActivity, "9oiaWSgtvgTcZHVvw8Fjftsg", "luYtSnwdkYszOy7x0tUp2fgMS75ISu34");
+        list.add("第三方工具");
+        list.add("干货订制");
+        activityFindTl.setTabMode(TabLayout.MODE_FIXED);
+        fragmentList.add(ThirdFragment.newInstance());
+        fragmentList.add(ZhishiFragment.newInstance());
+        myAdapter = new MyAdapter(mActivity.getSupportFragmentManager(),fragmentList,list);
+        activityFindVp.setAdapter(myAdapter);
+        activityFindTl.setupWithViewPager(activityFindVp);
     }
 
     @Override
@@ -90,21 +87,8 @@ public class FindFragment extends BaseMvpFragment {
     }
 
 
-    @OnClick({R2.id.rl_photo, R2.id.rl_card,R2.id.rl_gesturelock})
-    public void onViewClicked(View view) {
-        int id = view.getId();
-        if (id == R.id.rl_photo) {
-            ARouter.getInstance().build("/find/PhotoActivity").navigation();
-        } else if (id == R.id.rl_card) {
-            ARouter.getInstance().build("/find/ScanCardActivity").withBoolean("isok", hasGotToken).navigation();
-        }else if (id == R.id.rl_gesturelock) {
-            ARouter.getInstance().build("/gesturelock/GestureLockActivity").navigation();
-        }
-    }
-
     @Override
     protected void initImmersionBar(boolean isChange) {
         super.initImmersionBar(true);
     }
-
 }

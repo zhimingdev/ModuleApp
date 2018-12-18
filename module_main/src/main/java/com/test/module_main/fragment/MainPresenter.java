@@ -9,6 +9,7 @@ import com.test.lib_common.http.HttpResponse;
 import com.test.lib_common.http.RetrofitNewHelper;
 import com.test.module_main.api.ApiService;
 import com.test.module_main.bean.GrilBean;
+import com.test.module_main.bean.MovieBean;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,17 +19,15 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
 
     @Override
     public void requestData(Context context) {
-        Map<String, String> map = new HashMap<>();
-        map.put("page", ""+ Config.COMMON_CURRENTPAGE);
         RetrofitNewHelper.getNewInstance("")
                 .create(ApiService.class)
-                .getNews(map)
-                .compose(this.<HttpResponse<List<GrilBean>>>setThread())
-                .subscribe(new BaseObserver<List<GrilBean>>(context) {
+                .getNews()
+                .compose(this.<HttpResponse<List<MovieBean>>>setThread())
+                .subscribe(new BaseObserver<List<MovieBean>>(context) {
                     @Override
-                    public void onSuccess(HttpResponse<List<GrilBean>> t) throws Exception {
-                        List<GrilBean> grilBeans = t.getData();
-                        getView().refreshView(grilBeans);
+                    public void onSuccess(HttpResponse<List<MovieBean>> t) throws Exception {
+                        List<MovieBean> movieBeans = t.getSubjects();
+                        getView().refreshView(movieBeans);
                         getView().finshRefreshComplete(true);
                     }
 

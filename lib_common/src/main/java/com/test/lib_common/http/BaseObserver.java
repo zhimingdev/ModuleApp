@@ -40,7 +40,7 @@ public abstract class BaseObserver<T> implements Observer<HttpResponse<T>> {
     public void onNext(HttpResponse<T> response) {
         Log.i("OkHttp",new Gson().toJson(response));
         try {
-            if (response.getCode() == Config.RESPONSE_CODE_SUCCESS || !response.error) {
+            if (response.getCode() == Config.RESPONSE_CODE_SUCCESS || !response.error || response.getStart() == 0) {
 //                DialogUtils.closeDialog(mLoadingDialog);
                 new android.os.Handler().postDelayed(new Runnable() {
                     @Override

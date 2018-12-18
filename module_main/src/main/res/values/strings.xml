@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">module_main</string>
     <string name="title_home">首页</string>
     <string name="title_dashboard">福利</string>
     <string name="title_notifications">消息</string>
     <string name="title_mine">我的</string>
+    <string name="String_type">类型：</string>
+    <string name="string_rating">评分：</string>
+    <string name="string_rating_num">人评分</string>
 </resources>
