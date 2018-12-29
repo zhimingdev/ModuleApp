@@ -13,6 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srlEnableAutoLoadMore="true"
+            android:id="@+id/zhishi_srl">
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/xrv_custom"
             android:layout_width="match_parent"
@@ -21,5 +31,7 @@
             android:scrollbarThumbVertical="@color/tabBackground"
             android:scrollbars="vertical"
             tools:listitem="@layout/item_zhishi"/>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
     </LinearLayout>
 </layout>

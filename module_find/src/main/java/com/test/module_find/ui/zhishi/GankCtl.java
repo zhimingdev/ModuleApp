@@ -2,10 +2,13 @@ package com.test.module_find.ui.zhishi;
 
 import android.databinding.DataBindingUtil;
 import android.support.annotation.MainThread;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.test.lib_common.base.BaseApplication;
 import com.test.lib_common.config.Config;
 import com.test.lib_common.http.RetrofitNewHelper;
@@ -29,6 +32,7 @@ public class GankCtl {
     private ZhishiAdapter zhishiAdapter;
     private List<GankIoDataBean.ResultBean> results;
     private MyAdapter myAdapter;
+    private int index = Config.COMMON_CURRENTPAGE;
 
     public GankCtl(ZhishiFragmentBinding binding) {
         this.binding = binding;
@@ -36,10 +40,10 @@ public class GankCtl {
         initRecyclerView();
     }
 
-    public void requestData () {
+    public void requestData (final int index) {
         RetrofitNewHelper.getNewInstance(Config.DEFAULT)
                 .create(ApiService.class)
-                .getGankIoData("all",1,20)
+                .getGankIoData("all",index,20)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<GankIoDataBean>() {
@@ -52,6 +56,9 @@ public class GankCtl {
                     @Override
                     public void onNext(GankIoDataBean gankIoDataBean) {
                         results = gankIoDataBean.getResults();
+                        if(index == Config.COMMON_CURRENTPAGE) {
+                            zhishiAdapter.clear();
+                        }
                         zhishiAdapter.addAll(results);
                         zhishiAdapter.notifyDataSetChanged();
 
@@ -76,15 +83,32 @@ public class GankCtl {
      * 初始化RecyclerView
      */
     private void initRecyclerView() {
+        binding.zhishiSrl.setEnableRefresh(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(BaseApplication.getInstance());
         binding.xrvCustom.setLayoutManager(layoutManager);
+        binding.xrvCustom.setNestedScrollingEnabled(false);
+        binding.xrvCustom.setHasFixedSize(false);
         zhishiAdapter = new ZhishiAdapter();
         binding.xrvCustom.setAdapter(zhishiAdapter);
 
 //        myAdapter = new MyAdapter();
 //        binding.xrvCustom.setAdapter(myAdapter);
 
-        requestData();
+        requestData(Config.COMMON_CURRENTPAGE);
+
+        binding.zhishiSrl.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                requestData(++index);
+                refreshLayout.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                requestData(Config.COMMON_CURRENTPAGE);
+                refreshLayout.finishRefresh();
+            }
+        });
     }
 
     private class MyAdapter extends BaseQuickAdapter<GankIoDataBean.ResultBean,BaseViewHolder> {
