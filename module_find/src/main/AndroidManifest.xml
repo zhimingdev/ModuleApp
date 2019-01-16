@@ -9,5 +9,6 @@
             android:theme="@style/Base.AppTheme"></activity>
         <activity android:name=".IDCardActivity"
             android:theme="@style/Base.AppTheme"></activity>
+        <activity android:name=".ui.activity.WebActivity"/>
     </application>
 </manifest>

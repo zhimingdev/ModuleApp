@@ -8,7 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.test.lib_common.base.baseAdapter.OnItemClickListener;
 import com.test.module_find.R;
+import com.test.module_find.bean.GankIoDataBean;
 import com.test.module_find.databinding.ZhishiFragmentBinding;
 
 public class ZhishiFragment extends Fragment {

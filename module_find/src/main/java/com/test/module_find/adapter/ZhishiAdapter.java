@@ -2,6 +2,7 @@ package com.test.module_find.adapter;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
@@ -28,7 +29,7 @@ public class ZhishiAdapter extends BaseRecyclerViewAdapter<GankIoDataBean.Result
         }
 
         @Override
-        public void onBindViewHolder(GankIoDataBean.ResultBean object, int position) {
+        public void onBindViewHolder(final GankIoDataBean.ResultBean object, int position) {
             binding.setResultsBean(object);
             if (object.getImages() != null
                     && object.getImages().size() > 0
@@ -38,6 +39,12 @@ public class ZhishiAdapter extends BaseRecyclerViewAdapter<GankIoDataBean.Result
 //            binding.tvAndroidDes.setText(object.getDesc());
 //            binding.tvAndroidWho.setText(object.getWho());
 //            binding.tvAndroidTime.setText(TimeUtil.getTranslateTime(object.getPublishedAt()));
+            binding.llAll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    System.out.println("---"+object.getUrl());
+                }
+            });
         }
     }
 }

@@ -105,6 +105,6 @@ ext {
             "utils"                          : "com.blankj:utilcode:1.16.2",
             //强大的多功能库
             "RxTool"                         : "com.github.vondear.RxTool:RxKit:v2.0.4",
-            "RxUI"                           : "com.github.vondear.RxTool:RxUI:v2.0.4"
+            "RxUI"                           : "com.github.vondear.RxTool:RxUI:v2.0.4",
     ]
 }

@@ -91,4 +91,6 @@ public class FindFragment extends BaseMvpFragment {
     protected void initImmersionBar(boolean isChange) {
         super.initImmersionBar(true);
     }
+
+
 }

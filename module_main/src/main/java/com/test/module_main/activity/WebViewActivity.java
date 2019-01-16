@@ -13,7 +13,7 @@ public class WebViewActivity extends BaseMvpActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_webview;
+        return R.layout.find_activity_webview;
     }
 
     @Override
